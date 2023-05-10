@@ -10,6 +10,7 @@ import IO.AllAdd;
 import IO.UserDragon;
 import MyException.NotIdException;
 import java.io.*;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -80,9 +81,9 @@ public class CollectionManager {
         System.out.println("Тип элементов коллекции: " + Dragon.class.getSimpleName());
         System.out.println("Количество элементов в базе данных : " + baseList.size());
 
-        System.out.println("Количество элементов созданных "+Users.getCurrentUser()+" = "+retCreator(baseList).size());
-        // String formattedDateTime = Parser.time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-       // System.out.println("Время инициализации коллекции: " + formattedDateTime);
+        System.out.println("Количество элементов созданных вами"+retCreator(baseList).size());
+         String formattedDateTime = Users.time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        System.out.println("Время входа в аккаунт: " + formattedDateTime);
     }
 
 
@@ -306,7 +307,7 @@ public class CollectionManager {
         MainDataBase.requestSQLWithout("DELETE FROM DRAGONS;");
         for (Dragon dragon : baseList) {
 
-            MainDataBase.requestSQLWithout("insert into dragons (id, creator, creationDate, name, age, color, type, weight, size, eyesCount, toothCount, x, y) values ('" + dragon.getId() + "', '" + dragon.getCreator() + "', '" + dragon.getCreationDate() + "', '" + dragon.getName() + "', '" + dragon.getAge() + "', '" + dragon.getColor() + "', '" + dragon.getType() + "', '" + dragon.getWeight() + "', '"+dragon.getHead().getSize()+ "', '"+ dragon.getHead().getEyesCount() + "', '"+dragon.getHead().getToothCount()+"', '" + dragon.getCoordinates().getX() + "', '" + dragon.getCoordinates().getY() + "')");
+            MainDataBase.requestSQLWithout("insert into dragons (id, creator, creationDate, name, age, color, type, weight, size, eyesCount, toothCount, x, y) values ('" + dragon.getId() + "', '" + dragon.getCreator() + "', '" + dragon.getCreationDate().toString() + "', '" + dragon.getName() + "', '" + dragon.getAge() + "', '" + dragon.getColor() + "', '" + dragon.getType() + "', '" + dragon.getWeight() + "', '"+dragon.getHead().getSize()+ "', '"+ dragon.getHead().getEyesCount() + "', '"+dragon.getHead().getToothCount()+"', '" + dragon.getCoordinates().getX() + "', '" + dragon.getCoordinates().getY() + "')");
         }
         System.out.println("Коллекция сохранена в базе данных");
     }

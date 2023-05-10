@@ -68,8 +68,8 @@ public class InvokerCommand {
      * Метод, добавляющий команды без аргументов в соответствующие им коллекции..
      */
     public void addCommandWithoutArguments(){
-        commandWithoutArguments.put("Authorization", new CommandAutorizate(users));
-        commandWithoutArguments.put("LogOut", new CommandLogOut(collectionManager));
+        commandWithoutArguments.put("authorization", new CommandAutorizate(users));
+        commandWithoutArguments.put("logout", new CommandLogOut(collectionManager));
         commandWithoutArguments.put("add_if_min", new CommandAddMin(collectionManager));
         commandWithoutArguments.put("add", new CommandAdd(collectionManager));
         commandWithoutArguments.put("help", new HelpCommand(commandWithArguments, commandWithoutArguments));

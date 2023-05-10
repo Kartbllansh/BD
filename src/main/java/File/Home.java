@@ -20,9 +20,6 @@ public class Home {
         collection = new CollectionManager();
         ioUser = new IOUser();
         invokerCommand = new InvokerCommand(collection, ioUser );
-        System.out.println(InfoBase.getUrl());
-        System.out.println(InfoBase.getLogin());
-        System.out.println(InfoBase.getPasswd());
         MainDataBase.CreateTables();
         SetCollection.getDragonsFromDB();
         try {

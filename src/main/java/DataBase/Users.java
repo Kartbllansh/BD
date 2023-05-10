@@ -6,21 +6,46 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.Scanner;
 
 
+/**
+ * Класс, работающий с пользователями
+ */
 public class Users {
+    /**
+     * Метод, устанавливающий пользователя работающего с коллекцией в данный момент
+     *
+     * @param currentUser the current user
+     */
     public static void setCurrentUser(String currentUser) {
         Users.currentUser = currentUser;
     }
 
+    /**
+     * Поле, хранящее ссылку на объект
+     */
+    public static ZonedDateTime time;
+    /**
+     * Поле, хранящее информацию о пользователе
+     */
     private static String currentUser = null;
+
+    /**
+     * Gets current user.
+     *
+     * @return the current user
+     */
     public static String getCurrentUser() {
         return currentUser;
     }
 
 
+    /**
+     * Метод, запускающий авторизацию в программе
+     */
     public void startAuthentication(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите имя пользователя");
@@ -40,6 +65,12 @@ public class Users {
 
     }
 
+    /**
+     * Метод, позволяющий войти в аккаунт
+     *
+     * @param login   the login
+     * @param scanner the scanner
+     */
     public void enter(String login, Scanner scanner){
 
         try {
@@ -59,6 +90,7 @@ public class Users {
             if(Arrays.toString(hash).equals(resultSetHash.getString(1))){
                 System.out.println("Добро пожаловать, "+login);
                 currentUser = login;
+                time = ZonedDateTime.now();
                 count = -10;
             } else {
                 System.out.println("Неверный пароль. Осталось попыток: "+(--count));
@@ -70,6 +102,13 @@ public class Users {
 
 
     }
+
+    /**
+     * Метод, позволяющий зарегестрировать аккаунт
+     *
+     * @param login   the login
+     * @param scanner the scanner
+     */
     public void registration(String login, Scanner scanner){
         String passwd = null;
         int count =5;

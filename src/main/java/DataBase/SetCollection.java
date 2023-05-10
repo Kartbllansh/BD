@@ -7,9 +7,16 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 
+/**
+ * Класс, связывающий коллекцию и базу данных
+ */
 public class SetCollection {
+    /**
+     * Метод, в котором информация из базы данных записывается в коллекцию
+     */
     public static void getDragonsFromDB() {
 
         try {
@@ -26,8 +33,9 @@ public class SetCollection {
                 Color color = Color.valueOf(colorString);
                 String typeString = rs.getString("type");
                 DragonType type = DragonType.valueOf(typeString);
-                Timestamp creationTimestamp = rs.getTimestamp("creationDate");
-                ZonedDateTime creationDate = creationTimestamp.toInstant().atZone(ZoneId.systemDefault());
+                String stDate = rs.getString("creationDate");
+                DateTimeFormatter formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+                ZonedDateTime creationDate = ZonedDateTime.parse(stDate, formatter);
                 float x = rs.getFloat("x");
                 float y = rs.getFloat("y");
                 double size = rs.getDouble("size");

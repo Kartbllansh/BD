@@ -2,8 +2,17 @@ package DataBase;
 
 import java.security.SecureRandom;
 
+/**
+ * The type Salt generate.
+ */
 public class SaltGenerate {
     private static final int SALT_LENGTH = 16; // длина соли в байтах
+
+    /**
+     * Salt getter string.
+     *
+     * @return the string
+     */
     public static String saltGetter() {
         SecureRandom random = new SecureRandom();
         byte[] saltBytes = new byte[SALT_LENGTH];

@@ -3,10 +3,19 @@ package DataBase;
 import java.sql.*;
 import java.util.LinkedList;
 
+/**
+ * Класс, устанавливающий соединение с базой данных и позволяющий выполнять запросы
+ */
 public class MainDataBase {
+    /**
+     * Поле, хранящее ссылку на объект класса Connection
+     */
     private static Connection connection;
 
     //Класс Connection в Java используется для установления соединения с базами данных.
+    /**
+     * Метод, позволяющий установить соединение
+     */
     private static void getConnection() {
         try {
             connection = DriverManager.getConnection(InfoBase.getUrl(), InfoBase.getLogin(), InfoBase.getPasswd());
@@ -15,7 +24,12 @@ public class MainDataBase {
         }
     }
 
-    //метод, выполняет запрос без измененния данных
+    /**
+     * Метод, работающий с запросами, которые ничего не возвращают
+     *
+     * @param request the request
+     */
+//метод, выполняет запрос без измененния данных
     public static void requestSQLWithout(String request) {
         getConnection();
         try {
@@ -26,7 +40,14 @@ public class MainDataBase {
         }
     }
 
-    //метод, выполняет запрос с измененния данных
+    /**
+     * Метод, работающий с запросами, которые возвращающие информацию из базы данных
+     *
+     * @param request the request
+     * @param values  the values
+     * @return the result set
+     */
+//метод, выполняет запрос с измененния данных
     public static ResultSet requestSQLWith(String request, String... values) {
         getConnection();
         try {
@@ -47,6 +68,9 @@ public class MainDataBase {
     }
 
 
+    /**
+     * Метод, создающий таблицы, если до этого их не существовало
+     */
     public static void CreateTables() {
         getConnection();
         requestSQLWithout(Request.CREATEDRAGONS.getStringValue());
@@ -54,6 +78,11 @@ public class MainDataBase {
         requestSQLWithout(Request.CREATEDSEQUENCE.getStringValue());
     }
 
+    /**
+     * Метод, возвращающий коллекцию со всеми логинами
+     *
+     * @return the linked list
+     */
     public static LinkedList<String> compareLogin() {
         getConnection();
         LinkedList<String> loginList = new LinkedList<>();
@@ -70,10 +99,14 @@ public class MainDataBase {
         }
         return loginList;
     }
-    public void logOut(){
 
-    }
 
+    /**
+     * Метод, проверяющий существование логина в коллекции
+     *
+     * @param login the login
+     * @return the boolean
+     */
     public static boolean checkLogin(String login) {
         LinkedList<String> linkedList = compareLogin();
         boolean foundMatch = false;
