@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3620ff5-2ec9-4384-9282-65768364a813" name="Changes" comment="save id">
+    <list default="true" id="d3620ff5-2ec9-4384-9282-65768364a813" name="Changes" comment="new">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Auxiliary/RandomDragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Auxiliary/RandomDragon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Base/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Base/Dragon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase/SetCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase/SetCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/File/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/File/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IO/AllAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IO/AllAdd.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +20,37 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BD" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BD" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BD" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -44,15 +76,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -60,6 +87,13 @@
     ]
   }
 }</component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -82,18 +116,7 @@
       <workItem from="1683653031301" duration="1629000" />
       <workItem from="1683702976617" duration="878000" />
       <workItem from="1683708267514" duration="1799000" />
-      <workItem from="1683734313148" duration="104000" />
-      <workItem from="1683746415036" duration="1204000" />
-      <workItem from="1683793957218" duration="1971000" />
     </task>
-    <task id="LOCAL-00001" summary="save id">
-      <created>1683747615511</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1683747615511</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,9 +132,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="save id" />
-    <option name="LAST_COMMIT_MESSAGE" value="save id" />
   </component>
 </project>

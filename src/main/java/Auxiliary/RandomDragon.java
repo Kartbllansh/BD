@@ -3,6 +3,7 @@ package Auxiliary;
 import Base.*;
 
 
+import java.time.ZonedDateTime;
 import java.util.Random;
 
 /**
@@ -70,7 +71,9 @@ public class RandomDragon {
      * @return the dragon
      */
     public static Dragon doRandomDragon(){
+
         Dragon dragon = new Dragon();
+        dragon.setCreationDate(ZonedDateTime.now());
         dragon.setCoordinates(new Coordinates());
         dragon.getCoordinates().setY((float)generateRandomNumber());
         dragon.getCoordinates().setX((float) generateRandomNumber());

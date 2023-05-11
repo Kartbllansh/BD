@@ -10,7 +10,7 @@ public class Dragon  {
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
-    private java.time.ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private Integer age; //Значение поля должно быть больше 0, Поле может быть null
     private Long weight; //Значение поля должно быть больше 0, Поле не может быть null
     private Color color; //Поле не может быть null
@@ -45,17 +45,9 @@ public class Dragon  {
         this.setHead(head);
         this.creator = creator;
     }
-public String getCreator(){
+    public String getCreator(){
         return creator;
 }
-    /**
-     * Конструктор только с полем name
-     *
-     * @param name the name
-     */
-    public Dragon(String name) {
-        this.name = name;
-    }
 
     /**
      * Пустой конструктор
@@ -97,7 +89,9 @@ public String getCreator(){
     public void setId(Long id) {
         this.id = id;
     }
-
+    public void setCreationDate(ZonedDateTime creationDate){
+        this.creationDate = creationDate;
+    }
     /**
      * Gets name.
      *
@@ -139,19 +133,9 @@ public String getCreator(){
      *
      * @return the creation date
      */
-    public java.time.ZonedDateTime getCreationDate() {
+    public ZonedDateTime getCreationDate() {
         return creationDate;
     }
-
-    /**
-     * Sets creation date.
-     *
-     * @param creationDate the creation date
-     */
-    public void setCreationDate(java.time.ZonedDateTime creationDate) {
-        this.creationDate = creationDate;
-    }
-
     /**
      * Gets age.
      *
