@@ -36,6 +36,7 @@ public class SetCollection {
                 String stDate = rs.getString("creationDate");
                 DateTimeFormatter formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
                 ZonedDateTime creationDate = ZonedDateTime.parse(stDate, formatter);
+                System.out.println("check time "+creationDate+"bbbbbb");
                 float x = rs.getFloat("x");
                 float y = rs.getFloat("y");
                 double size = rs.getDouble("size");

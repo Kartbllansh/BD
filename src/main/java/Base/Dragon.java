@@ -36,7 +36,7 @@ public class Dragon  {
         this.id = id;
         this.creationDate = creationDate;
         this.name = name;
-        this.creationDate = ZonedDateTime.now(ZoneId.of("Europe/Moscow"));
+        this.creationDate = ZonedDateTime.now();
         this.coordinates = coordinates;
         this.setAge(age);
         this.setWeight(weight);
@@ -71,7 +71,7 @@ public String getCreator(){
                 + "id =" + getId()
                 + ", name =" + getName()
                 + ", coordinates =" + getCoordinates()
-                + ", creationDate =" + ZonedDateTime.now()
+                + ", creationDate =" + getCreationDate()
                 + ", age =" + getAge()
                 + ", weight =" + getWeight()
                 + ", color =" + getColor()
