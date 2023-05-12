@@ -306,7 +306,8 @@ public class CollectionManager {
     public void save() {
         MainDataBase.requestSQLWithout("DELETE FROM DRAGONS;");
         for (Dragon dragon : baseList) {
-            MainDataBase.requestSQLWithout("insert into dragons (id, creator, creationDate, name, age, color, type, weight, size, eyesCount, toothCount, x, y) values (' nextval('DRAGONSEQ') ', '" + dragon.getCreator() + "', '" + dragon.getCreationDate().toString() + "', '" + dragon.getName() + "', '" + dragon.getAge() + "', '" + dragon.getColor() + "', '" + dragon.getType() + "', '" + dragon.getWeight() + "', '"+dragon.getHead().getSize()+ "', '"+ dragon.getHead().getEyesCount() + "', '"+dragon.getHead().getToothCount()+"', '" + dragon.getCoordinates().getX() + "', '" + dragon.getCoordinates().getY() + "')");
+            //System.out.println("Vot smotri "+dragon.getCreationDate()+"kkk");
+            MainDataBase.requestSQLWithout("insert into dragons (id, creator, creationDate, name, age, color, type, weight, size, eyesCount, toothCount, x, y) values (nextval('DRAGONSEQ') , '" + dragon.getCreator() + "', '" + dragon.getCreationDate().toString() + "', '" + dragon.getName() + "', '" + dragon.getAge() + "', '" + dragon.getColor() + "', '" + dragon.getType() + "', '" + dragon.getWeight() + "', '"+dragon.getHead().getSize()+ "', '"+ dragon.getHead().getEyesCount() + "', '"+dragon.getHead().getToothCount()+"', '" + dragon.getCoordinates().getX() + "', '" + dragon.getCoordinates().getY() + "')");
         }
         System.out.println("Коллекция сохранена в базе данных");
     }

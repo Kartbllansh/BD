@@ -32,7 +32,7 @@ public class HelpCommand implements Command{
     @Override
     public void execute() {
         if(!CheckUser.checkUsers()){
-            System.err.println("Так как вы не авторизовались вам недоступны команды, которые удаляют или добавляют объекты");
+            System.out.println("\u001B[33m" + "Так как вы не авторизовались вам недоступны команды, которые удаляют или добавляют объекты" + "\u001B[0m");
         }
         for (Map.Entry<String, Command> entry : commandWithoutArguments.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue().getDescription());

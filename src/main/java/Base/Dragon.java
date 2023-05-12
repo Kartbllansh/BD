@@ -69,6 +69,7 @@ public class Dragon  {
                 + ", color =" + getColor()
                 + ", type =" + getType()
                 + ", head =" + getHead()
+                + ", creator = "+getCreator()
                 + '}';
     }
 

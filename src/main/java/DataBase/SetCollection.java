@@ -34,9 +34,7 @@ public class SetCollection {
                 String typeString = rs.getString("type");
                 DragonType type = DragonType.valueOf(typeString);
                 String stDate = rs.getString("creationDate");
-                DateTimeFormatter formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
-                ZonedDateTime creationDate = ZonedDateTime.parse(stDate, formatter);
-                System.out.println("check time "+creationDate+"bbbbbb");
+                ZonedDateTime creationDate = ZonedDateTime.parse(stDate);
                 float x = rs.getFloat("x");
                 float y = rs.getFloat("y");
                 double size = rs.getDouble("size");
