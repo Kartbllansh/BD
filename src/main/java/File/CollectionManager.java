@@ -305,6 +305,7 @@ public class CollectionManager {
     //проверить повтоящиеся драконы
     public void save() {
         MainDataBase.requestSQLWithout("DELETE FROM DRAGONS;");
+        MainDataBase.requestSQLWithout("ALTER SEQUENCE DRAGONSEQ RESTART WITH 1;");
         for (Dragon dragon : baseList) {
             //System.out.println("Vot smotri "+dragon.getCreationDate()+"kkk");
             MainDataBase.requestSQLWithout("insert into dragons (id, creator, creationDate, name, age, color, type, weight, size, eyesCount, toothCount, x, y) values (nextval('DRAGONSEQ') , '" + dragon.getCreator() + "', '" + dragon.getCreationDate().toString() + "', '" + dragon.getName() + "', '" + dragon.getAge() + "', '" + dragon.getColor() + "', '" + dragon.getType() + "', '" + dragon.getWeight() + "', '"+dragon.getHead().getSize()+ "', '"+ dragon.getHead().getEyesCount() + "', '"+dragon.getHead().getToothCount()+"', '" + dragon.getCoordinates().getX() + "', '" + dragon.getCoordinates().getY() + "')");
@@ -417,6 +418,10 @@ public void logOut(){
 Users.setCurrentUser(null);
     System.out.println("Вы успешно вышли из аккаунта");
 }
+    public void clearData(){
+        MainDataBase.requestSQLWithout("DELETE FROM DRAGONS;");
+        MainDataBase.requestSQLWithout("DELETE FROM USERS;");
+    }
 
 }
 

@@ -4,6 +4,7 @@ import Auxiliary.RandomDragon;
 import Base.Color;
 import Base.Dragon;
 import Base.DragonType;
+import DataBase.Users;
 import File.VotTvoyId;
 
 import java.time.ZonedDateTime;
@@ -46,6 +47,7 @@ public class AllAdd {
     public Dragon groupMethod(){
         Dragon change = new Dragon();
         change.setCreationDate(ZonedDateTime.now());
+        change.setCreator(Users.getCurrentUser());
         Scanner update = new Scanner(System.in);
         VotTvoyId.votDragon(change);
         //change.setId(UserDragon.generId());

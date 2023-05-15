@@ -1,6 +1,7 @@
 package Auxiliary;
 
 import Base.*;
+import DataBase.Users;
 
 
 import java.time.ZonedDateTime;
@@ -74,6 +75,7 @@ public class RandomDragon {
 
         Dragon dragon = new Dragon();
         dragon.setCreationDate(ZonedDateTime.now());
+        dragon.setCreator(Users.getCurrentUser());
         dragon.setCoordinates(new Coordinates());
         dragon.getCoordinates().setY((float)generateRandomNumber());
         dragon.getCoordinates().setX((float) generateRandomNumber());

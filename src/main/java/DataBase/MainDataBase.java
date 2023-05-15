@@ -88,7 +88,7 @@ public class MainDataBase {
         LinkedList<String> loginList = new LinkedList<>();
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(Request.SEARCHLOGIN.getStringValue());
+            ResultSet resultSet = statement.executeQuery("SELECT login FROM USERS");
             while (resultSet.next()) {
 
                 loginList.add(resultSet.getString("login"));
@@ -119,5 +119,6 @@ public class MainDataBase {
         }
         return foundMatch;
     }
+
 }
 

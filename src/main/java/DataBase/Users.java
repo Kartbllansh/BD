@@ -50,6 +50,7 @@ public class Users {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите имя пользователя");
         String login = scanner.nextLine();
+        System.out.println(MainDataBase.compareLogin());
         boolean decision = MainDataBase.checkLogin(login);
         if(decision){
             System.out.println("Пользователь с таким логином существует");
@@ -78,7 +79,7 @@ public class Users {
 
         while(count > 0){
             System.out.println("Введите пароль");
-            MessageDigest md = MessageDigest.getInstance("SHA-1");
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
             ResultSet resultSetSalt = MainDataBase.requestSQLWith("SELECT salt FROM USERS WHERE login = ?", login);
             assert resultSetSalt != null;
             resultSetSalt.next();
@@ -125,13 +126,14 @@ public class Users {
         }
         MessageDigest md;
         try {
-            md = MessageDigest.getInstance("SHA-224");
+            md = MessageDigest.getInstance("SHA-512");
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
         String salt = SaltGenerate.saltGetter();
         byte[] hash = md.digest(("*63&^mVLC(#" + passwd + salt).getBytes(StandardCharsets.UTF_8));
-        MainDataBase.requestSQLWith("INSERT INTO USERS (login, hash, salt, dataAut) VALUES (?, ?, ?, ?)", login, Arrays.toString(hash), salt, LocalDate.now().toString());
+        //MainDataBase.requestSQLWithout("INSERT INTO USERS (login, hash, salt) VALUES (?, ?, ?)", login, Arrays.toString(hash), salt);
+        MainDataBase.requestSQLWithout("INSERT INTO USERS (login, hash, salt) VALUES ('" + login + "', '" + Arrays.toString(hash) + "', '" + salt + "')");
         System.out.println("Вы успешно прошли регистрацию");
         currentUser = login;
 

@@ -48,6 +48,9 @@ public class Dragon  {
     public String getCreator(){
         return creator;
 }
+public void setCreator(String creator){
+        this.creator = creator;
+}
 
     /**
      * Пустой конструктор
