@@ -50,7 +50,7 @@ public class Users {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите имя пользователя");
         String login = scanner.nextLine();
-        System.out.println(MainDataBase.compareLogin());
+        //System.out.println(MainDataBase.compareLogin());
         boolean decision = MainDataBase.checkLogin(login);
         if(decision){
             System.out.println("Пользователь с таким логином существует");

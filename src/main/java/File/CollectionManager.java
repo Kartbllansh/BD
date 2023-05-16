@@ -124,11 +124,8 @@ public class CollectionManager {
      * Метод, очищающий коллекцию
      */
     public void clear() {
-        LinkedList<Dragon> clearest = retCreator(baseList);
-        for(Dragon dragon : clearest){
-            baseList.remove(dragon);
-        }
-        System.out.println("Все ваши драконы удалены успешно");
+        baseList.clear();
+        System.out.println("Коллекция удалена успешна");
     }
 
 
@@ -259,12 +256,13 @@ public class CollectionManager {
         }
         System.out.println("Введите данные драконы, на которого хотите заменить дракона с id = " + id);
         Dragon change = allAdd.groupMethod();
+        //System.out.println(change.toString());
         for (int i = 0; i < baseList.size(); i++) {
             Dragon dragon = baseList.get(i);
             if (baseList.get(i).getId().equals(id) & Objects.equals(dragon.getCreator(), Users.getCurrentUser())) {
                 baseList.set(i, change);
                 System.out.println("Дракон с ID " + id + " был заменен на дракона с именем "+change.getName());
-                //votTvoyId.votIdBad(baseList);
+                votTvoyId.votIdBad(baseList);
                 return;
             }
         }
