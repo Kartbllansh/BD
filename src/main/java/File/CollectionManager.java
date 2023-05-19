@@ -81,9 +81,9 @@ public class CollectionManager {
         System.out.println("Тип элементов коллекции: " + Dragon.class.getSimpleName());
         System.out.println("Количество элементов в базе данных : " + baseList.size());
 
-        System.out.println("Количество элементов созданных вами"+retCreator(baseList).size());
-         String formattedDateTime = Users.time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        System.out.println("Время входа в аккаунт: " + formattedDateTime);
+        //System.out.println("Количество элементов созданных вами"+retCreator(baseList).size());
+         //String formattedDateTime = Users.time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        //System.out.println("Время входа в аккаунт: " + formattedDateTime);
     }
 
 
@@ -124,7 +124,12 @@ public class CollectionManager {
      * Метод, очищающий коллекцию
      */
     public void clear() {
-        baseList.clear();
+        for(int i=0; i< baseList.size(); i++){
+            Dragon dragon = baseList.get(i);
+            if(Objects.equals(dragon.getCreator(), Users.getCurrentUser())){
+                baseList.remove(dragon);
+            }
+        }
         System.out.println("Коллекция удалена успешна");
     }
 
@@ -142,12 +147,16 @@ public class CollectionManager {
         for (int i = 0; i < baseList.size(); i++) {
             Dragon dragon = baseList.get(i);
             Long check = baseList.get(i).getId();
-            if (Objects.equals(check, id) & Objects.equals(dragon.getCreator(), Users.getCurrentUser())) {
+            if (Objects.equals(check, id)) {
+                if(Objects.equals(dragon.getCreator(), Users.getCurrentUser())){
                 baseList.remove(i);
                 System.out.println("Дракон с id = " + id + " удален успешно");
                 System.out.println("Теперь коллекция содержит "+baseList.size()+" элементов");
                 votTvoyId.votIdBad(baseList);
                 return;
+            } else {
+                    System.out.println("Дракон принадлежит другому пользователю ( "+dragon.getCreator()+" ). Вы не можете его удалить");
+                }
             }
         }
         System.err.println("Дракона с id = " + id + " не существует");
@@ -247,6 +256,10 @@ public class CollectionManager {
             System.err.println("Коллекция пуста. Команда бесполезна");
             return;
         }
+        if (!Objects.equals(Users.getCurrentUser(), baseList.get((int)id - 1).getCreator())){
+            System.out.println("Дракон принадлежит другому пользователю. Вы не можете его удалить");
+            return;
+        }
         LinkedList<Long> idd =checkId(baseList);
         try {
             if (!idd.contains(id)) throw new NotIdException();
@@ -320,6 +333,10 @@ public class CollectionManager {
             System.err.println("Коллекция пуста. Команда бесполезна");
             return;
         }
+        if (!Objects.equals(Users.getCurrentUser(), baseList.get(i).getCreator())){
+            System.out.println("Дракон принадлежит другому пользователю. Вы не можете его удалить");
+            return;
+        }
         try {
             if (i <= baseList.size() & Objects.equals(baseList.get(i).getCreator(), Users.getCurrentUser())) {
                 baseList.remove(i);
@@ -361,7 +378,7 @@ public class CollectionManager {
         for (int i = 0; i < baseList.size(); i++) {
             Dragon dragon = baseList.get(i);
             int result = comparatorAge.compare(greader.getFirst(), dragon);
-            if (result < 0) {
+            if (result < 0 & Objects.equals(Users.getCurrentUser(), dragon.getCreator())) {
                 baseList.remove(dragon);
 
                 System.out.println(dragon.getName() + " удален");

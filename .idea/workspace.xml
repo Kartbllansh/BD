@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3620ff5-2ec9-4384-9282-65768364a813" name="Changes" comment="save id">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_05_2023_22_58__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_05_2023_22_58__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/File/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/File/CollectionManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +50,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
@@ -88,6 +90,8 @@
       <workItem from="1684161527663" duration="5740000" />
       <workItem from="1684252956532" duration="1484000" />
       <workItem from="1684350363262" duration="354000" />
+      <workItem from="1684504411075" duration="28000" />
+      <workItem from="1684506003068" duration="2284000" />
     </task>
     <task id="LOCAL-00001" summary="save id">
       <created>1683747615511</created>
